@@ -33,11 +33,11 @@ def load_css():
 
     try:
 
-        with builtins.open(
-            r"c:\python1\FarmPulse_Web\style.css",
-            "r",
-            encoding="utf-8"
-        ) as f:
+      with builtins.open(
+    "style.css",
+    "r",
+    encoding="utf-8"
+) as f:
 
             css = f.read()
 
