@@ -726,7 +726,7 @@ def dashboard():
     user = st.session_state.get("user")
 
     if not user:
-    st.error("User session kosong")
+        st.error("User session kosong")
     return
 
     user_name = user.get("name", "User")
