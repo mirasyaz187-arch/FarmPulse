@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 from fastapi import FastAPI, Query
 from pydantic import BaseModel
 import pandas as pd
@@ -8,7 +6,6 @@ from sklearn.linear_model import LinearRegression
 import hashlib
 import hmac
 import os
-from typing import Optional
 
 # Firebase / Firestore
 from firebase_config import db
@@ -18,7 +15,7 @@ from firebase_config import db
 # PASSWORD SECURITY
 # ==========================================
 
-def hash_password(password: "str", salt: Optional[bytes] = None) -> "str":
+def hash_password(password: str, salt: bytes | None = None) -> str:
     if salt is None:
         salt = os.urandom(16)
 
@@ -133,49 +130,6 @@ except Exception as e:
 
     df_prices = pd.DataFrame()
 
-    # ==========================================
-# LOAD FERTILIZER DATASET
-# ==========================================
-
-try:
-
-    df_fertilizer = pd.read_csv(
-        "fertilizer_prices.csv"
-    )
-
-    # Convert date
-    df_fertilizer["date"] = pd.to_datetime(
-        df_fertilizer["date"],
-        errors="coerce"
-    )
-
-    # Convert price
-    df_fertilizer["price"] = pd.to_numeric(
-        df_fertilizer["price"],
-        errors="coerce"
-    )
-
-    # Remove invalid records
-    df_fertilizer = df_fertilizer.dropna(
-        subset=[
-            "date",
-            "price"
-        ]
-    )
-
-    print("✅ Fertilizer price data loaded!")
-    print(
-        f"Fertilizer records: {len(df_fertilizer)}"
-    )
-
-except Exception as e:
-
-    print(
-        f"❌ Error loading fertilizer dataset: {e}"
-    )
-
-    df_fertilizer = pd.DataFrame()
-
 
 # ==========================================
 # FIREBASE AUTHENTICATION
@@ -263,7 +217,7 @@ def login_user(data: LoginRequest):
             "message": "Invalid phone number or password"
         }
 
-    user = user_doc.to_dict() or {}
+    user = user_doc.to_dict()
 
     # Password must be stored as a hash
     stored_hash = user.get("password_hash")
@@ -348,42 +302,6 @@ def get_commodities():
         "status": "success",
         "count": len(data),
         "data": data
-    }
-
-# ==========================================
-# FERTILIZER PRICE
-# ==========================================
-
-@app.get("/api/fertilizer")
-def get_fertilizer_prices(
-    fertilizer: str | None = None
-):
-
-    if df_fertilizer.empty:
-        return {
-            "success": False,
-            "message": "Fertilizer data not available"
-        }
-
-    data = df_fertilizer.copy()
-
-    # Filter fertilizer
-    if fertilizer:
-        data = data[
-            data["fertilizer"].str.contains(
-                fertilizer,
-                case=False,
-                na=False
-            )
-        ]
-
-    # Convert date to string
-    data["date"] = data["date"].dt.strftime("%Y-%m-%d")
-
-    return {
-        "success": True,
-        "count": len(data),
-        "data": data.to_dict(orient="records")
     }
 
 
