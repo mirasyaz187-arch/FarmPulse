@@ -34,9 +34,9 @@ def load_css():
     try:
 
       with builtins.open(
-    "style.css",
-    "r",
-    encoding="utf-8"
+         "style.css",
+         "r",
+         encoding="utf-8"
 ) as f:
 
             css = f.read()
