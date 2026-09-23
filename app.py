@@ -265,16 +265,22 @@ def login_page():
                     }
                 )
 
-                if result:
+                
+            if result:
 
-                    st.session_state.logged_in = True
-                    st.session_state.user = result.get(
-                        "user", {}
-                    )
+                st.session_state.logged_in = True
 
-                    st.session_state.page = "Dashboard"
+                st.session_state.user = result.get("user") or {
+                "id": result.get("id"),
+                "name": result.get("name", "User"),
+                "phone": result.get("phone", ""),
+                "role": result.get("role", "farmer")
+            }
 
-                    st.rerun()
+                st.session_state.page = "Dashboard"
+
+                st.rerun()
+
 
         st.markdown("""
         <div class="auth-switch-text">
