@@ -3058,12 +3058,9 @@ def fertilizer_price_history():
 
 
 
-# FIREBASE INVENTORY
-# =========================================================
-
 def get_inventory():
 
-    user = st.session_state.user
+    user = st.session_state.get("user")
 
     if not user:
         return []
@@ -3075,60 +3072,33 @@ def get_inventory():
 
     try:
 
-        api_folder = r"C:\python1\FarmPulse_API"
+        response = requests.get(
+            BASE_URL + "/api/inventory",
+            params={
+                "user_id": user_id
+            },
+            timeout=15
+        )
 
-        if api_folder not in sys.path:
+        if response.status_code != 200:
+            return []
 
-            sys.path.append(
-                api_folder
+        result = response.json()
+
+        if isinstance(result, dict):
+            return (
+                result.get("data")
+                or result.get("inventory")
+                or []
             )
 
-        # firebase_config is provided by the sibling API project and is added
-        # to sys.path immediately above.  It is not part of this project, so
-        # tell static analysis not to flag the runtime import.
-        import firebase_config  # type: ignore[import-not-found]
+        if isinstance(result, list):
+            return result
 
-        db = firebase_config.db
+        return []
 
     except Exception:
-
         return []
-
-    try:
-
-        inventory_ref = (
-            db.collection("inventory")
-            .where(
-                "user_id",
-                "==",
-                user_id
-            )
-        )
-
-        docs = inventory_ref.stream()
-
-        inventory = []
-
-        for doc in docs:
-
-            data = doc.to_dict()
-
-            data["id"] = doc.id
-
-            inventory.append(
-                data
-            )
-
-        return inventory
-
-    except Exception as e:
-
-        st.error(
-            f"Firebase error: {e}"
-        )
-
-        return []
-
 
 # =========================================================
 # ADD INVENTORY
