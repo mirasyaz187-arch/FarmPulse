@@ -28,17 +28,9 @@ BASE_URL = "http://127.0.0.1:8000"
 # =========================================================
 # LOAD CSS
 # =========================================================
-
 def load_css():
-
     try:
-
-      with builtins.open(
-         "style.css",
-         "r",
-         encoding="utf-8"
-) as f:
-
+        with open("style.css", "r", encoding="utf-8") as f:
             css = f.read()
 
         st.markdown(
@@ -47,7 +39,6 @@ def load_css():
         )
 
     except OSError:
-
         st.warning(
             "style.css not found. "
             "Please make sure style.css is in the same folder as app.py."
