@@ -1,0 +1,1714 @@
+/* =========================================================
+   FARM PULSE - AESTHETIC ENHANCED GLOBAL STYLE
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+/* =========================================================
+   ROOT
+   ========================================================= */
+
+:root {
+    --fp-green-dark: #0d4f3c;
+    --fp-green: #17845f;
+    --fp-green-light: #eaf7f0;
+
+    --fp-blue: #3c8fd9;
+    --fp-yellow: #e9b83f;
+    --fp-purple: #8065c7;
+
+    --fp-text: #133831;
+    --fp-muted: #6b7d78;
+
+    --fp-border: #e2ebe6;
+    --fp-background: #f4f8f6;
+    --fp-white: #ffffff;
+
+    --fp-shadow: 0 10px 30px -5px rgba(13, 79, 60, 0.05), 0 4px 6px -2px rgba(13, 79, 60, 0.02);
+    --fp-shadow-hover: 0 20px 40px -10px rgba(13, 79, 60, 0.09);
+
+    --fp-radius: 16px;
+    --fp-transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+
+
+/* Menukar warna latar belakang sidebar jika mahu */
+[data-testid="stSidebar"] {
+    background-color: var(--fp-white);
+}
+
+/* =========================================================
+   STREAMLIT GLOBAL & CUSTOM SCROLLBAR
+   ========================================================= */
+
+html,
+body,
+[class*="css"] {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.stApp {
+    background: #cfd6d0;
+    color: var(--fp-text);
+}
+
+/* Custom Sleek Scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #cbdcd5;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #a3c2b6;
+}
+
+/* =========================================================
+   FARM PULSE AUTHENTICATION
+   LOGIN & REGISTER
+   ========================================================= */
+
+.login-spacer {
+    height: 25px;
+}
+
+
+/* =========================================================
+   LEFT FARM IMAGE PANEL
+   ========================================================= */
+
+.auth-image {
+    min-height: 590px;
+    border-radius: 22px;
+    overflow: hidden;
+    position: relative;
+
+    background:
+        linear-gradient(rgba(5, 55, 40, 0.40),
+            rgba(5, 55, 40, 0.72)),
+        url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1200&q=80');
+
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+    align-items: flex-end;
+
+    box-shadow:
+        0 15px 35px rgba(13, 79, 60, 0.18);
+}
+
+
+.auth-image-content {
+    padding: 40px;
+    color: white;
+    width: 100%;
+}
+
+
+.auth-brand {
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+}
+
+
+.auth-image-title {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 40px;
+    line-height: 1.1;
+    margin: 0 0 15px 0;
+    color: white;
+    font-weight: 800;
+}
+
+
+.auth-image-description {
+    font-size: 14px;
+    line-height: 1.7;
+    max-width: 400px;
+    margin: 0 0 28px 0;
+    color: white;
+}
+
+
+.auth-feature {
+    margin-bottom: 14px;
+    font-size: 13px;
+}
+
+
+.auth-feature-text {
+    margin-left: 25px;
+    opacity: 0.85;
+}
+
+
+/* =========================================================
+   RIGHT AUTH PANEL
+   ========================================================= */
+
+.auth-header {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    margin-bottom: 25px;
+}
+
+
+.auth-welcome {
+    color: #1f7a4d;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+
+.auth-title {
+    color: #12453b;
+    font-weight: 800;
+    font-size: 30px;
+    margin: 0 0 6px 0;
+}
+
+
+.auth-description {
+    color: #64748b;
+    font-size: 13px;
+    margin: 0;
+}
+
+
+/* =========================================================
+   AUTH SWITCH
+   ========================================================= */
+
+.auth-switch-text {
+    text-align: center;
+    color: #64748b;
+    font-size: 13px;
+    margin-top: 22px;
+    margin-bottom: 8px;
+}
+
+
+/* =========================================================
+   AUTH FOOTER
+   ========================================================= */
+
+.auth-footer {
+    text-align: center;
+    color: #94a3b8;
+    font-size: 11px;
+    margin-top: 18px;
+}
+
+/* =========================================================
+   MAIN CONTAINER
+   ========================================================= */
+
+.block-container {
+    max-width: 1500px;
+    padding-top: 1.5rem !important;
+    padding-bottom: 3rem !important;
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
+}
+
+/* =========================================================
+   HIDE STREAMLIT DEFAULT ELEMENTS
+   ========================================================= */
+
+#MainMenu,
+footer {
+    display: none !important;
+}
+
+/* Keep Streamlit header controls available.
+   IMPORTANT: do not hide the toolbar because it contains
+   the sidebar expand/collapse control. */
+div[data-testid="stToolbar"] {
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+header[data-testid="stHeader"] {
+    background: transparent !important;
+    z-index: 999999 !important;
+}
+
+/* =========================================================
+   SIDEBAR - STABLE STREAMLIT VERSION
+   ========================================================= */
+
+/*
+   IMPORTANT:
+   - Do NOT force a fixed width on the sidebar in every state.
+   - Streamlit controls the open/closed state itself.
+   - We only style the sidebar while it is rendered.
+*/
+
+/* Main sidebar */
+section[data-testid="stSidebar"] {
+    background: linear-gradient(180deg,
+            #093b2d 0%,
+            #0d4f3c 50%,
+            #083327 100%) !important;
+
+    border-right: none !important;
+    box-shadow: 4px 0 25px rgba(0, 0, 0, 0.08) !important;
+
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* Sidebar inner background */
+section[data-testid="stSidebar"]>div {
+    background: transparent !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* Sidebar content must remain visible */
+section[data-testid="stSidebar"] [data-testid="stSidebarContent"],
+section[data-testid="stSidebar"] [data-testid="stSidebarUserContent"] {
+    background: transparent !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* Sidebar content spacing */
+section[data-testid="stSidebar"]>div:first-child {
+    padding-top: 1.5rem !important;
+}
+
+/* Sidebar text */
+section[data-testid="stSidebar"] p,
+section[data-testid="stSidebar"] span,
+section[data-testid="stSidebar"] label {
+    color: #ffffff;
+}
+
+/* Navigation */
+section[data-testid="stSidebar"] div[role="radiogroup"] {
+    gap: 8px;
+}
+
+/* Navigation items */
+section[data-testid="stSidebar"] div[role="radiogroup"] label {
+    border-radius: 12px;
+    padding: 11px 14px;
+    transition: var(--fp-transition);
+    border: 1px solid transparent;
+}
+
+/* Navigation hover */
+section[data-testid="stSidebar"] div[role="radiogroup"] label:hover {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+}
+
+/* Active navigation item */
+section[data-testid="stSidebar"] div[role="radiogroup"] label:has(input:checked) {
+    background: rgba(86, 190, 134, 0.22);
+    backdrop-filter: blur(10px);
+    box-shadow:
+        inset 3px 0 0 #79d39b,
+        0 4px 12px rgba(0, 0, 0, 0.1);
+    border-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Hide radio circle */
+section[data-testid="stSidebar"] div[role="radiogroup"] label>div:first-child {
+    display: none;
+}
+
+/* Divider */
+section[data-testid="stSidebar"] hr {
+    border-color: rgba(255, 255, 255, 0.1);
+    margin: 20px 0;
+}
+
+/* Sidebar buttons */
+section[data-testid="stSidebar"] button {
+    border-radius: 12px !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    background: rgba(255, 255, 255, 0.06) !important;
+    color: #ffffff !important;
+    backdrop-filter: blur(5px);
+    transition: var(--fp-transition);
+}
+
+/* Sidebar button hover */
+section[data-testid="stSidebar"] button:hover {
+    background: rgba(255, 255, 255, 0.15) !important;
+    transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   SIDEBAR COLLAPSE / EXPAND CONTROLS
+   ========================================================= */
+
+/*
+   Keep Streamlit's own sidebar controls visible.
+   These selectors intentionally do NOT force sidebar width.
+*/
+
+header[data-testid="stHeader"] {
+    background: transparent !important;
+    z-index: 999999 !important;
+}
+
+/* Header buttons */
+header[data-testid="stHeader"] button {
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* Open sidebar: collapse button */
+button[data-testid="stSidebarCollapseButton"] {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    z-index: 999999 !important;
+}
+
+/* Closed sidebar: expand control */
+button[data-testid="stSidebarCollapsedControl"] {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    z-index: 999999 !important;
+}
+
+/* Some Streamlit versions put the test id on a wrapper */
+[data-testid="stSidebarCollapsedControl"] {
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+}
+
+/* Do not accidentally hide the expand/collapse area */
+header[data-testid="stHeader"] [data-testid="stSidebarCollapsedControl"],
+header[data-testid="stHeader"] [data-testid="stSidebarCollapseButton"] {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+}
+
+
+/* =========================================================
+   SIDEBAR RESPONSIVE WIDTH
+   ========================================================= */
+
+@media (min-width: 901px) {
+    section[data-testid="stSidebar"][aria-expanded="true"] {
+        min-width: 255px !important;
+        max-width: 255px !important;
+    }
+}
+
+/* =========================================================
+   DASHBOARD SEARCH, NOTIFICATION & PROFILE TOPBAR
+   ========================================================= */
+
+.dashboard-search {
+    height: 45px;
+    background: var(--fp-white);
+    border: 1px solid var(--fp-border);
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    color: #9aa8a4;
+    font-size: 13px;
+    box-shadow: 0 2px 10px rgba(13, 79, 60, 0.02);
+    margin-bottom: 15px;
+    transition: var(--fp-transition);
+}
+
+.dashboard-search:focus-within {
+    border-color: var(--fp-green);
+    box-shadow: 0 0 0 3px rgba(23, 132, 95, 0.1);
+}
+
+.dashboard-search span {
+    margin-left: 10px;
+}
+
+.dashboard-notification {
+    height: 45px;
+    width: 45px;
+    background: var(--fp-white);
+    border: 1px solid var(--fp-border);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    font-size: 17px;
+    box-shadow: 0 2px 10px rgba(13, 79, 60, 0.02);
+    transition: var(--fp-transition);
+    cursor: pointer;
+}
+
+.dashboard-notification:hover {
+    background: var(--fp-green-light);
+    border-color: #c5e8d6;
+    transform: scale(1.05);
+}
+
+.dashboard-profile {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+    height: 45px;
+}
+
+.profile-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #e1f3eb;
+    font-size: 18px;
+    border: 2px solid var(--fp-white);
+    box-shadow: 0 2px 8px rgba(13, 79, 60, 0.06);
+}
+
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.25;
+}
+
+.profile-info strong {
+    color: var(--fp-text);
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.profile-info span {
+    color: var(--fp-muted);
+    font-size: 10px;
+}
+
+/* =========================================================
+   HERO BANNER
+   ========================================================= */
+
+.dashboard-hero {
+    position: relative;
+    min-height: 150px;
+    overflow: hidden;
+    border-radius: var(--fp-radius);
+    background: linear-gradient(110deg, #e4f7ed 0%, #eaf8f1 50%, #d5f0e1 100%);
+    border: 1px solid #d4ebd9;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    padding: 30px 36px;
+    box-shadow: var(--fp-shadow);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 4;
+    max-width: 52%;
+}
+
+.hero-greeting {
+    font-family: 'DM Serif Display', serif;
+    color: #0c382e;
+    font-size: 31px;
+    line-height: 1.15;
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+}
+
+.hero-description {
+    color: #356b5b;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.hero-illustration {
+    position: absolute;
+    right: 15%;
+    bottom: 0;
+    width: 310px;
+    height: 140px;
+}
+
+.hero-sun {
+    position: absolute;
+    right: 105px;
+    top: 15px;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: #f5cf73;
+    opacity: 0.9;
+    box-shadow: 0 0 20px rgba(245, 207, 115, 0.4);
+}
+
+.hero-mountain {
+    position: absolute;
+    bottom: 37px;
+    width: 0;
+    height: 0;
+    border-left: 75px solid transparent;
+    border-right: 75px solid transparent;
+    border-bottom: 95px solid #b1d8cb;
+}
+
+.mountain-one {
+    left: 15px;
+}
+
+.mountain-two {
+    left: 90px;
+    border-bottom-color: #9acbbf;
+    transform: scale(0.8);
+}
+
+.hero-field {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 54px;
+    border-radius: 50% 50% 0 0;
+    background: #93c9a6;
+}
+
+.field-one {
+    opacity: 0.65;
+}
+
+.field-two {
+    bottom: -15px;
+    height: 50px;
+    background: #6bb084;
+    opacity: 0.6;
+}
+
+.hero-farmer {
+    position: absolute;
+    right: 48px;
+    bottom: 29px;
+    font-size: 47px;
+    z-index: 3;
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+}
+
+.hero-quote {
+    position: absolute;
+    right: 22px;
+    top: 28px;
+    z-index: 5;
+    color: #205445;
+    font-family: 'DM Serif Display', serif;
+    font-size: 14px;
+    font-style: italic;
+    line-height: 1.4;
+    width: 145px;
+    text-align: left;
+}
+
+/* =========================================================
+   SUMMARY CARDS (Pbaikan Kontras Teks & Butang)
+   ========================================================= */
+
+.summary-card {
+    min-height: 95px;
+    border-radius: var(--fp-radius);
+    padding: 18px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    box-shadow: var(--fp-shadow);
+    margin-bottom: 8px;
+    transition: var(--fp-transition);
+}
+
+.summary-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--fp-shadow-hover);
+}
+
+.summary-label {
+    font-size: 11px;
+    color: #335c4e !important;
+    /* Paksa warna lebih gelap & jelas */
+    font-weight: 700;
+    margin-bottom: 3px;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+.summary-number {
+    font-size: 23px;
+    color: #0d382e !important;
+    /* Paksa warna gelap supaya nampak jelas */
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 4px;
+}
+
+/* Card Variant Backgrounds yang lebih kontras */
+.summary-green {
+    background: linear-gradient(135deg, #f2fcf6 0%, #d6f2e2 100%) !important;
+}
+
+.summary-blue {
+    background: linear-gradient(135deg, #f3f8fd 0%, #d6e8fa 100%) !important;
+}
+
+.summary-yellow {
+    background: linear-gradient(135deg, #fffcf4 0%, #fbeebf 100%) !important;
+}
+
+.summary-purple {
+    background: linear-gradient(135deg, #f7f5fd 0%, #e5dcfc 100%) !important;
+}
+
+/* =========================================================
+   DASHBOARD PANEL
+   ========================================================= */
+
+.dashboard-panel {
+    background: var(--fp-white);
+    border: 1px solid var(--fp-border);
+    border-radius: var(--fp-radius);
+    padding: 20px;
+    box-shadow: var(--fp-shadow);
+    min-height: 100%;
+    overflow: hidden;
+    transition: var(--fp-transition);
+}
+
+.dashboard-panel:hover {
+    box-shadow: var(--fp-shadow-hover);
+}
+
+.panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 16px;
+}
+
+.panel-header h3 {
+    margin: 0 0 3px 0;
+    font-size: 16px;
+    font-weight: 800;
+    color: #12453b;
+    letter-spacing: -0.3px;
+}
+
+.panel-header p {
+    margin: 0;
+    font-size: 10px;
+    color: var(--fp-muted);
+}
+
+.view-all {
+    color: var(--fp-green);
+    font-size: 10px;
+    font-weight: 700;
+    padding-top: 3px;
+    cursor: pointer;
+    transition: var(--fp-transition);
+}
+
+.view-all:hover {
+    color: var(--fp-green-dark);
+}
+
+/* =========================================================
+   DATAFRAME & STREAMLIT ELEMENTS
+   ========================================================= */
+
+div[data-testid="stDataFrame"] {
+    border: 1px solid #e5ece8;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.01);
+}
+
+div[data-testid="stDataFrame"] * {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+div[data-testid="stArrowVegaLiteChart"] {
+    border-radius: 12px;
+}
+
+div[data-testid="stMetric"] {
+    background: var(--fp-white);
+    border: 1px solid var(--fp-border);
+    border-radius: 14px;
+    padding: 15px;
+    box-shadow: var(--fp-shadow);
+}
+
+/* =========================================================
+   CURRENT PRICE BOX
+   ========================================================= */
+
+.current-price-box {
+    background: linear-gradient(135deg, #f0faf4 0%, #e2f5eb 100%);
+    border: 1px solid #d2ebd9;
+    border-radius: 12px;
+    padding: 14px 16px;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.current-price-box span {
+    color: #657d74;
+    font-size: 10px;
+    margin-bottom: 2px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.current-price-box strong {
+    color: #0f4a38;
+    font-size: 21px;
+    font-weight: 800;
+}
+
+.current-price-box small {
+    color: #728a80;
+    font-size: 10px;
+    margin-top: 2px;
+}
+
+/* =========================================================
+   QUICK ACTIONS
+   ========================================================= */
+
+.quick-panel {
+    padding-bottom: 10px;
+}
+
+.quick-panel button {
+    background: #edf8f2 !important;
+    border: 1px solid #d4eade !important;
+    color: #1a5241 !important;
+    border-radius: 12px !important;
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    min-height: 46px !important;
+    text-align: left !important;
+    transition: var(--fp-transition) !important;
+    box-shadow: 0 2px 5px rgba(13, 79, 60, 0.02);
+}
+
+.quick-panel button:hover {
+    background: #def2e7 !important;
+    border-color: #b3dfc6 !important;
+    transform: translateX(4px) !important;
+    box-shadow: 0 4px 12px rgba(13, 79, 60, 0.06);
+}
+
+.quick-panel .stButton {
+    margin-top: 6px;
+    margin-bottom: 0;
+}
+
+/* =========================================================
+   STATE PROGRESS ROWS
+   ========================================================= */
+
+.state-row {
+    margin-bottom: 15px;
+}
+
+.state-name {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #3b5c52;
+    font-size: 11px;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.state-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #3fa36c;
+    box-shadow: 0 0 8px rgba(63, 163, 108, 0.5);
+}
+
+.state-bar-container {
+    height: 7px;
+    width: 100%;
+    background: #edf3f0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.state-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #42a36d, #73c794);
+    border-radius: 10px;
+}
+
+/* =========================================================
+   INVENTORY STATUS & ACTIVITIES
+   ========================================================= */
+
+.inventory-status-row,
+.activity-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid #f1f5f3;
+}
+
+.inventory-status-row:last-child,
+.activity-row:last-child {
+    border-bottom: none;
+}
+
+.inventory-icon,
+.activity-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    background: #edf8f3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+}
+
+.inventory-details,
+.activity-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.inventory-name {
+    color: #2c4c44;
+    font-size: 11px;
+    font-weight: 700;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.inventory-meta {
+    color: var(--fp-muted);
+    font-size: 9px;
+    margin-top: 2px;
+}
+
+.inventory-good {
+    color: #1e8756;
+    font-weight: 700;
+}
+
+.inventory-low {
+    color: #d68f1e;
+    font-weight: 700;
+}
+
+.inventory-progress {
+    height: 6px;
+    background: #edf2f0;
+    border-radius: 10px;
+    margin-top: 6px;
+    overflow: hidden;
+}
+
+.inventory-progress-fill {
+    height: 100%;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #3fa36c, #64bd8c);
+}
+
+/* Activity stream tweaks */
+.activity-content strong {
+    font-size: 10px;
+    color: #2c4c44;
+    margin-bottom: 3px;
+    display: block;
+}
+
+.activity-content span {
+    font-size: 9px;
+    color: var(--fp-muted);
+    line-height: 1.4;
+}
+
+/* =========================================================
+   EMPTY STATE
+   ========================================================= */
+
+.empty-dashboard {
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 6px;
+    color: var(--fp-muted);
+}
+
+.empty-icon {
+    font-size: 34px;
+    margin-bottom: 5px;
+    opacity: 0.8;
+}
+
+.empty-dashboard strong {
+    color: #3b5c52;
+    font-size: 13px;
+}
+
+.empty-dashboard span {
+    font-size: 10px;
+    max-width: 240px;
+}
+
+/* =========================================================
+   INSIGHT BANNER & PROFILE CARD
+   ========================================================= */
+
+.insight-banner {
+    min-height: 135px;
+    border-radius: var(--fp-radius);
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: linear-gradient(120deg, #eaf7ef 0%, #f4fbf7 100%);
+    border: 1px solid #d5ebdE;
+    box-shadow: var(--fp-shadow);
+}
+
+.insight-icon {
+    width: 60px;
+    height: 60px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: #cdecd9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.6);
+}
+
+.insight-text strong {
+    color: #124c3a;
+    font-size: 16px;
+    letter-spacing: -0.2px;
+}
+
+.insight-text p {
+    color: #55736a;
+    font-size: 11px;
+    line-height: 1.6;
+    margin: 6px 0 0;
+}
+
+.profile-card {
+    background: var(--fp-white);
+    border: 1px solid var(--fp-border);
+    border-radius: var(--fp-radius);
+    padding: 20px;
+    box-shadow: var(--fp-shadow);
+}
+
+.profile-card-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.profile-large-avatar {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: #dff2e7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    border: 2px solid var(--fp-white);
+    box-shadow: 0 4px 10px rgba(13, 79, 60, 0.08);
+}
+
+.profile-card-header h3 {
+    margin: 0 0 3px;
+    font-size: 15px;
+    color: #184c3f;
+    font-weight: 800;
+}
+
+.profile-card-header span {
+    color: var(--fp-muted);
+    font-size: 10px;
+}
+
+.profile-divider {
+    height: 1px;
+    background: #edf3f0;
+    margin: 16px 0;
+}
+
+.profile-detail {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 0;
+}
+
+.profile-detail span {
+    color: var(--fp-muted);
+    font-size: 10px;
+}
+
+.profile-detail strong {
+    color: #35574e;
+    font-size: 10px;
+}
+
+/* =========================================================
+   BUTTONS & FORMS (Streamlit Overrides)
+   ========================================================= */
+
+.stButton>button {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    border-radius: 12px;
+    font-weight: 700;
+    transition: var(--fp-transition);
+}
+
+button[kind="primary"] {
+    background: #17845f !important;
+    border-color: #17845f !important;
+    color: white !important;
+    box-shadow: 0 4px 12px rgba(23, 132, 95, 0.25) !important;
+}
+
+button[kind="primary"]:hover {
+    background: #126b4d !important;
+    border-color: #126b4d !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(23, 132, 95, 0.35) !important;
+}
+
+div[data-baseweb="input"],
+div[data-baseweb="select"] {
+    border-radius: 12px !important;
+}
+
+[data-testid="stForm"] {
+    border: 1px solid var(--fp-border);
+    border-radius: var(--fp-radius);
+    background: var(--fp-white);
+    padding: 24px;
+    box-shadow: var(--fp-shadow);
+}
+
+div[data-testid="stAlert"] {
+    border-radius: 12px;
+    border: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+/* =========================================================
+   LOGIN & CARDS
+   ========================================================= */
+
+.login-spacer {
+    height: 60px;
+}
+
+.login-card {
+    background: linear-gradient(135deg, #eaf7f0 0%, #ffffff 100%);
+    border: 1px solid #d4ebd9;
+    border-radius: 20px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 15px 35px rgba(13, 79, 60, 0.08);
+    margin-bottom: 20px;
+}
+
+.login-logo {
+    font-size: 48px;
+    margin-bottom: 8px;
+}
+
+.login-title {
+    font-family: 'DM Serif Display', serif;
+    color: #114c3b;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.login-subtitle {
+    color: var(--fp-muted);
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+.login-footer {
+    text-align: center;
+    color: #8da19b;
+    font-size: 11px;
+    margin-top: 25px;
+    padding: 10px;
+}
+
+.inventory-card {
+    background: var(--fp-white);
+    border: 1px solid var(--fp-border);
+    border-radius: var(--fp-radius);
+    padding: 22px;
+    min-height: 155px;
+    box-shadow: var(--fp-shadow);
+    transition: var(--fp-transition);
+}
+
+.inventory-card:hover {
+    box-shadow: var(--fp-shadow-hover);
+    transform: translateY(-2px);
+}
+
+.low-stock {
+    background: #fffcf4;
+    border: 1px solid #f6e3b8;
+    border-radius: 14px;
+    padding: 16px;
+    box-shadow: 0 4px 12px rgba(213, 150, 36, 0.04);
+}
+
+.main-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 32px;
+    color: #12453b;
+    margin-bottom: 4px;
+    letter-spacing: -0.5px;
+}
+
+.main-subtitle {
+    color: var(--fp-muted);
+    font-size: 13px;
+    margin-bottom: 24px;
+}
+
+.dashboard-bottom-footer {
+    display: flex;
+    justify-content: space-between;
+    color: #9aa8a4;
+    font-size: 10px;
+    padding: 20px 3px 6px;
+    margin-top: 15px;
+    border-top: 1px solid #e5ebe8;
+}
+
+/* =========================================================
+   RESPONSIVE QUERIES
+   ========================================================= */
+
+@media (max-width: 1200px) {
+    .hero-illustration {
+        right: 5%;
+        opacity: 0.7;
+    }
+
+    .hero-quote {
+        display: none;
+    }
+
+    .hero-content {
+        max-width: 70%;
+    }
+}
+
+@media (max-width: 900px) {
+    section[data-testid="stSidebar"][aria-expanded="true"] {
+        min-width: 215px !important;
+        max-width: 215px !important;
+    }
+
+    .block-container {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+
+    .dashboard-hero {
+        min-height: 130px;
+    }
+
+    .hero-greeting {
+        font-size: 25px;
+    }
+
+    .hero-illustration {
+        opacity: 0.3;
+    }
+}
+
+@media (max-width: 700px) {
+    .dashboard-profile {
+        display: none;
+    }
+
+    .dashboard-notification {
+        margin-left: auto;
+    }
+
+    .hero-content {
+        max-width: 100%;
+    }
+
+    .hero-illustration {
+        display: none;
+    }
+
+    .dashboard-bottom-footer {
+        flex-direction: column;
+        gap: 6px;
+    }
+}
+
+div[data-testid="stMetric"] {
+    background: var(--fp-white);
+    border: 1px solid var(--fp-border);
+    border-radius: 14px;
+    padding: 15px;
+    box-shadow: var(--fp-shadow);
+}
+
+/* Tambah kod ini untuk betulkan warna teks metrik Streamlit */
+div[data-testid="stMetricValue"] {
+    color: #0d382e !important;
+}
+
+div[data-testid="stMetricLabel"] {
+    color: #335c4e !important;
+}
+
+.stDownloadButton button {
+    color: #133831 !important;
+    background-color: #eaf7f0 !important;
+    border: 1px solid #d4ebd9 !important;
+}
+
+.stDownloadButton button:hover {
+    background-color: #d6f2e2 !important;
+    border-color: #b3dfc6 !important;
+}
+
+/* Paksa warna label metrik Streamlit supaya menjadi gelap dan jelas */
+div[data-testid="stMetricLabel"] label,
+div[data-testid="stMetricLabel"] p,
+[data-testid="stMetricLabel"] div {
+    color: #133831 !important;
+    font-weight: 700 !important;
+}
+
+/* =========================================================
+   FARMPULSE - FINANCIAL TRACKING
+   ========================================================= */
+
+.finance-page-header {
+    margin-bottom: 24px;
+}
+
+.finance-title-row {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.finance-icon {
+    width: 58px;
+    height: 58px;
+    border-radius: 16px;
+
+    background: #e8f6ef;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 30px;
+
+    border: 1px solid #d5eee1;
+}
+
+.finance-title {
+    font-size: 30px;
+    font-weight: 800;
+    color: #123f34;
+    line-height: 1.1;
+}
+
+.finance-subtitle {
+    margin-top: 5px;
+    font-size: 14px;
+    color: #71827c;
+}
+
+
+/* =========================================================
+   SUMMARY CARDS
+   ========================================================= */
+
+.finance-summary-card {
+    min-height: 128px;
+
+    border-radius: 16px;
+
+    padding: 22px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 18px;
+
+    border: 1px solid;
+
+    box-shadow:
+        0 8px 25px rgba(13, 79, 60, 0.04);
+}
+
+.income-card {
+    background: #f3fbf7;
+    border-color: #d7eee2;
+}
+
+.expense-card {
+    background: #fff4f4;
+    border-color: #f3d7d9;
+}
+
+.balance-card {
+    background: #f2f8fd;
+    border-color: #d5e7f6;
+}
+
+.finance-card-icon {
+    width: 55px;
+    height: 55px;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 26px;
+
+    flex-shrink: 0;
+}
+
+.income-card .finance-card-icon {
+    background: #dff4e9;
+}
+
+.expense-card .finance-card-icon {
+    background: #ffe1e2;
+}
+
+.balance-card .finance-card-icon {
+    background: #dceefa;
+}
+
+.finance-card-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #60736d;
+
+    margin-bottom: 4px;
+}
+
+.finance-card-value {
+    font-size: 25px;
+    font-weight: 800;
+    color: #123b32;
+
+    letter-spacing: -0.5px;
+}
+
+.finance-card-note {
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.income-note {
+    color: #21875f;
+}
+
+.expense-note {
+    color: #e65d65;
+}
+
+.balance-positive {
+    color: #21875f;
+}
+
+.balance-negative {
+    color: #e65d65;
+}
+
+
+/* =========================================================
+   SPACING
+   ========================================================= */
+
+.finance-space {
+    height: 4px;
+}
+
+/* =========================================================
+   FINANCIAL TRACKING - FIX WHITE EMPTY BOX
+   ========================================================= */
+
+.finance-form-panel {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    min-height: 0 !important;
+    height: auto !important;
+}
+
+.finance-panel-title {
+    color: #133831 !important;
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.finance-panel-subtitle {
+    color: #6b7d78 !important;
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+
+/* =========================================================
+   FORM
+   ========================================================= */
+
+.finance-form-panel {
+    background: #ffffff;
+
+    border: 1px solid #e3ebe7;
+
+    border-radius: 16px;
+
+    padding: 20px;
+
+    min-height: 330px;
+
+    box-shadow:
+        0 8px 25px rgba(13, 79, 60, 0.035);
+}
+
+.finance-form-title {
+    font-size: 17px;
+    font-weight: 800;
+
+    color: #163d34;
+
+    margin-bottom: 17px;
+}
+
+
+/* =========================================================
+   STREAMLIT INPUTS
+   ========================================================= */
+
+.finance-form-panel div[data-baseweb="select"] {
+    border-radius: 9px;
+}
+
+.finance-form-panel input {
+    border-radius: 9px !important;
+}
+
+.finance-form-panel textarea {
+    border-radius: 9px !important;
+}
+
+
+/* =========================================================
+   TRANSACTIONS
+   ========================================================= */
+
+.finance-transactions-panel {
+    margin-top: 20px;
+
+    background: #ffffff;
+
+    border: 1px solid #e3ebe7;
+
+    border-radius: 16px;
+
+    padding: 20px;
+
+    box-shadow:
+        0 8px 25px rgba(13, 79, 60, 0.035);
+}
+
+.finance-panel-header-row {
+    display: flex;
+    justify-content: space-between;
+
+    margin-bottom: 15px;
+}
+
+.transaction-row {
+    display: grid;
+
+    grid-template-columns:
+        1.1fr 0.8fr 1.3fr 2fr 1fr;
+
+    align-items: center;
+
+    min-height: 58px;
+
+    border-top: 1px solid #edf2ef;
+
+    gap: 12px;
+
+    font-size: 12px;
+}
+
+.transaction-date {
+    color: #596d66;
+    font-weight: 500;
+}
+
+.transaction-category {
+    color: #405b53;
+    font-weight: 600;
+}
+
+.transaction-description {
+    color: #7a8984;
+}
+
+.transaction-amount {
+    text-align: right;
+    font-weight: 800;
+}
+
+.amount-income {
+    color: #21875f;
+}
+
+.amount-expense {
+    color: #ed6268;
+}
+
+
+/* =========================================================
+   TRANSACTION BADGES
+   ========================================================= */
+
+.transaction-badge {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 5px 11px;
+
+    border-radius: 20px;
+
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.transaction-income {
+    color: #21875f;
+    background: #dff4e9;
+}
+
+.transaction-expense {
+    color: #e65d65;
+    background: #ffe1e2;
+}
+
+
+/* =========================================================
+   PRIMARY BUTTON
+   ========================================================= */
+
+.finance-form-panel button[kind="primary"] {
+    background: #0d5a43 !important;
+
+    border: none !important;
+
+    border-radius: 9px !important;
+
+    font-weight: 700 !important;
+}
+
+.finance-form-panel button[kind="primary"]:hover {
+    background: #0a4936 !important;
+}
+
+
+/* =========================================================
+   RADIO BUTTON
+   ========================================================= */
+
+.finance-form-panel div[data-testid="stRadio"] label {
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+    .finance-title {
+        font-size: 26px;
+    }
+
+    .transaction-row {
+        grid-template-columns:
+            1fr 1fr 1fr;
+        padding: 12px 0;
+    }
+
+    .transaction-amount {
+        text-align: left;
+    }
+}
